@@ -141,7 +141,9 @@
 										style="margin-top: 10px;"> </p></a>
 									<br>
 									<div class="g-signin2 google-button" data-onsuccess="onSignIn"></div>
-									<div id="content"></div>
+									<p id="demo" style="font-size: 30px;"> </p><p id="memo"></p><div id="content"></div>
+									<br>
+									
 								<br>
 								<nav class="login-card-footer-nav">
 									<a href="#!">Terms of use.</a>
@@ -179,7 +181,7 @@
 		  </div> -->
 			</div>
 	</section>
-
+<!-- ====================================================COURSES============================================= -->
 	<section style="margin-top: 50px;">
 
 		<section class="ftco-section" id="courses">
@@ -535,20 +537,25 @@
 		</ul>
 		<p style="text-align: center; position: relative; top: 4rem;"> Developed by Team HexCLAN</p>
 	</footer>
-
+    
 
 	<script>
 		function onSignIn(googleUser) {
-		  var profile = googleUser.getBasicProfile();
-		  console.log("User is " + JSON.stringify(profile));
-	     
-		  var element = document.querySelector("#content");
-          element.innerText = profile.getName();
+			document.getElementById("demo").innerHTML = "Welcome,";
+      var profile = googleUser.getBasicProfile();
+      console.log("User is " + JSON.stringify(profile));
 
-		 
-		}
-		
-	 </script>
+      var element = document.querySelector("#content");
+      element.innerText = profile.getName();
+	  document.getElementById("memo").innerHTML = "";
+      var image = document.createElement("img");
+      image.setAttribute("src", profile.getImageUrl());
+      element.append(image);
+    }
+  </script>
+  
+ 
+	 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/popper.js"></script>
 	<script src="js/bootstrap.min.js"></script>
